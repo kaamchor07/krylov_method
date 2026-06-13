@@ -1,41 +1,49 @@
 # Ship Hull Waterline Analysis
 
-This repository contains a small set of Python scripts for hull-waterline analysis, polynomial fitting, and GZ / stability-related calculations based on ship offset data.
+This repository contains a compact Python workflow for ship hull waterline analysis, polynomial fitting, and GZ-related calculations based on vessel offset data.
 
-## What is included
+## Overview
 
-- `GZ curves final.py` — computes and analyzes waterplane / GZ-related parameters from the generated intersection data.
-- `krylov method final.py` — derives waterline intersections and writes the supporting report / CSV outputs.
-- `tchebychev final.py` — fits waterline polynomials and generates the intersection-point dataset used by the other scripts.
-- `Ship Offsets.csv` and `stem_stern_offsets.csv` — source hull offset data.
-- `Krylov Method Report.pdf` — PDF report generated from the workflow.
+The project is organized around three main analysis scripts:
 
-## Project purpose
+- `tchebychev final.py` — fits polynomial curves to the ship’s waterlines and generates intersection-point data.
+- `krylov method final.py` — derives waterline intersections and writes supporting report/CSV outputs.
+- `GZ curves final.py` — computes waterplane and stability-related parameters from the generated intersection data.
 
-The scripts are used to:
+It also includes the source datasets used by the analysis:
 
-1. fit waterline polynomial curves from offset data,
-2. calculate station / waterline intersection points,
-3. generate intermediate CSV and report outputs for further hydrostatic or stability analysis.
+- `Ship Offsets.csv`
+- `stem_stern_offsets.csv`
+- `Krylov Method Report.pdf`
+
+## Project goals
+
+This codebase is intended for:
+
+1. fitting waterline polynomial curves from hull offset data,
+2. calculating station/waterline intersection points,
+3. generating intermediate CSV and report outputs for hydrostatic or stability analysis.
 
 ## Requirements
 
-Install the Python dependencies with:
+The project uses Python 3 and the dependencies listed in `requirements.txt`.
+
+Install them with:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Expected packages:
+Core dependencies:
 
 - numpy
 - pandas
 - matplotlib
 - scipy
 
-## How to run
+## Quick start
 
-From the project root:
+Run the scripts from the repository root:
 
 ```bash
 python "tchebychev final.py"
@@ -43,7 +51,7 @@ python "krylov method final.py"
 python "GZ curves final.py"
 ```
 
-The scripts write generated outputs such as:
+Typical outputs produced by the workflow include:
 
 - `tchebychev_intersection_points.csv`
 - `tchebychev_intersection_report.txt`
@@ -51,7 +59,14 @@ The scripts write generated outputs such as:
 - `waterline_equations.txt`
 - `waterline_fits.png`
 
+## Repository structure
+
+- `*.py` — analysis and fitting scripts
+- `*.csv` — vessel offset and station data
+- `*.pdf` — generated report output
+- `requirements.txt` — Python package dependencies
+
 ## Notes
 
-- The source files include the original analysis scripts and their generated artifacts.
-- The code is provided as-is for research / engineering analysis workflows.
+- This repository includes the original analysis scripts and their generated artifacts.
+- The code is provided as-is for research, engineering study, and exploratory hull analysis work.
